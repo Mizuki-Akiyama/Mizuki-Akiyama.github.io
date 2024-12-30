@@ -3,7 +3,7 @@
 <html lang="cn">
 <head>
     <meta charset="utf-8" />
-    <title>BCLY&#39;s Blog</title>
+    <title>二叉树节点的创建 | BCLY&#39;s Blog</title>
     <meta name="author" content="" />
     <meta name="description" content="越努力，越幸运" />
     <meta name="keywords" content="" />
@@ -42,7 +42,9 @@
 
 
 
-<script src="/js/lib/home.js"></script>
+
+
+
 
 <link rel="stylesheet" href="/css/main.css" />
 
@@ -152,40 +154,11 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="home-head">
-    <div
-        id="home-background"
-        ref="homeBackground"
-        data-images="/images/background.jpg"
-    ></div>
-    <div id="home-info" @click="homeClick">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>BCLY&#39;s Blog</h1>
-                <h3>欢迎你来看我</h3>
-                <h5>越努力，越幸运</h5>
-            </div>
-        </span>
+            <div class="article">
+    <div>
+        <h1>二叉树节点的创建</h1>
     </div>
-</div>
-<div
-    id="home-posts-wrap"
-    ref="homePostsWrap"
-    true
->
-    <div id="home-posts">
-        
-
-<div class="post">
-    <a href="/2024/12/30/MyArticle/">
-        <h2 class="post-title">二叉树节点的创建</h2>
-    </a>
-    <div class="category-and-date">
-        
+    <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
@@ -195,90 +168,22 @@
         
         
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <blockquote><footer><strong>原文章：</strong><cite><a target="_blank" rel="noopener" href="https://github.com/Mizuki-Akiyama/Solution-recording">二叉树</a></cite></footer></blockquote>
+    
+    <div class="content" v-pre>
+        <blockquote><footer><strong>原文章：</strong><cite><a target="_blank" rel="noopener" href="https://github.com/Mizuki-Akiyama/Solution-recording">二叉树</a></cite></footer></blockquote>
 <p>这是关于一个二叉树节点的java代码实现</p>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2024/12/30/MyArticle/" class="go-post">阅读全文</a>
-</div>
+<span id="more"></span>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TreeNode</span> &#123;</span><br><span class="line">    <span class="type">int</span> val;</span><br><span class="line">  TreeNode left;</span><br><span class="line">  TreeNode right;</span><br><span class="line">  TreeNode() &#123;&#125;</span><br><span class="line">  TreeNode(<span class="type">int</span> val) &#123; <span class="built_in">this</span>.val = val; &#125;</span><br><span class="line">  TreeNode(<span class="type">int</span> val, TreeNode left, TreeNode right) &#123;</span><br><span class="line">  <span class="built_in">this</span>.val = val;</span><br><span class="line">  <span class="built_in">this</span>.left = left;</span><br><span class="line">  <span class="built_in">this</span>.right = right;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<div class="post">
-    <a href="/2024/12/27/MyArticle/">
-        <h2 class="post-title">我的第一篇文章</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2024/12/27
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>花了一天，终于建好了这个博客，让我来看看这个测试文章效果如何</p>
+<p>一个节点最多有两颗子树</p>
 
-            
-        </div>
     </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2024/12/27/MyArticle/" class="go-post">阅读全文</a>
-</div>
-
-
-        <div class="page-current">
     
-    <span class="current">1</span>
     
     
     
     
-</div>
-
-    </div>
     
-    <div id="home-card">
-        <div id="card-style">
-    <div id="card-div">
-        <div class="avatar">
-            <img src="/images/avatar.jpg" alt="avatar" />
-        </div>
-        <div class="name"></div>
-        <div class="description">
-            <p>Description<br>…</p>
-
-        </div>
-        
-        
-        <div class="friend-links">
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://argvchs.github.io">Argvchs</a>
-            </div>
-            
-        </div>
-        
-    </div>
-</div>
-
-    </div>
     
 </div>
 
@@ -310,6 +215,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>
