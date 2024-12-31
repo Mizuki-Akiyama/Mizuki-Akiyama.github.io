@@ -3,9 +3,9 @@
 <html lang="cn">
 <head>
     <meta charset="utf-8" />
-    <title>BCLY&#39;s Blog</title>
-    <meta name="author" content="" />
-    <meta name="description" content="越努力，越幸运" />
+    <title>北尘聆音の小窝</title>
+    <meta name="author" content="北尘聆音" />
+    <meta name="description" content="欢迎你来看我" />
     <meta name="keywords" content="" />
     <meta
         name="viewport"
@@ -61,39 +61,34 @@
         <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
     <nav id="desktop-menu">
         <a class="title" href="/">
-            <span>BCLY&#39;S BLOG</span>
+            <span>北尘聆音の小窝</span>
         </a>
         
         <a href="/">
-            <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;Home</span>
+            <i class="fa-solid fa-主页 fa-fw"></i>
+            <span>&ensp;主页</span>
         </a>
         
         <a href="/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
+            <i class="fa-solid fa-关于 fa-fw"></i>
+            <span>&ensp;关于</span>
         </a>
         
         <a href="/archives">
-            <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;Archives</span>
-        </a>
-        
-        <a href="/categories">
-            <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;Categories</span>
+            <i class="fa-solid fa-归档 fa-fw"></i>
+            <span>&ensp;归档</span>
         </a>
         
         <a href="/tags">
-            <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;Tags</span>
+            <i class="fa-solid fa-标签 fa-fw"></i>
+            <span>&ensp;标签</span>
         </a>
         
     </nav>
     <nav id="mobile-menu">
         <div class="title" @click="showMenuItems = !showMenuItems">
             <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;BCLY&#39;S BLOG</span>
+            <span>&emsp;北尘聆音の小窝</span>
         </div>
         <transition name="slide">
             <div class="items" v-show="showMenuItems">
@@ -101,45 +96,36 @@
                 <a href="/">
                     <div class="item">
                         <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-house fa-fw"></i>
+                            <i class="fa-solid fa-主页 fa-fw"></i>
                         </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">主页</div>
                     </div>
                 </a>
                 
                 <a href="/about">
                     <div class="item">
                         <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-id-card fa-fw"></i>
+                            <i class="fa-solid fa-关于 fa-fw"></i>
                         </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">关于</div>
                     </div>
                 </a>
                 
                 <a href="/archives">
                     <div class="item">
                         <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                            <i class="fa-solid fa-归档 fa-fw"></i>
                         </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
-                    </div>
-                </a>
-                
-                <a href="/categories">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">归档</div>
                     </div>
                 </a>
                 
                 <a href="/tags">
                     <div class="item">
                         <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-tags fa-fw"></i>
+                            <i class="fa-solid fa-标签 fa-fw"></i>
                         </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">标签</div>
                     </div>
                 </a>
                 
@@ -165,9 +151,9 @@
         <span class="loop"></span>
         <span class="info">
             <div class="wrap">
-                <h1>BCLY&#39;s Blog</h1>
-                <h3>欢迎你来看我</h3>
-                <h5>越努力，越幸运</h5>
+                <h1>北尘聆音の小窝</h1>
+                <h3></h3>
+                <h5>欢迎你来看我</h5>
             </div>
         </span>
     </div>
@@ -179,6 +165,78 @@
 >
     <div id="home-posts">
         
+
+<div class="post">
+    <a href="/2024/12/31/MyArticle/">
+        <h2 class="post-title">再一次的测试</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/31
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>代码测试：</p>
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; <span class="title function_">levelOrder</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">        Deque&lt;TreeNode&gt; queue = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (root != <span class="literal">null</span>) queue.add(root);</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> queue.size();<span class="comment">//本层的元素数量</span></span><br><span class="line">            List&lt;Integer&gt; level = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();<span class="comment">//本层元素的集合</span></span><br><span class="line">            <span class="keyword">while</span> (size &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="type">TreeNode</span> <span class="variable">node</span> <span class="operator">=</span> queue.pop();</span><br><span class="line">                level.add(node.val);</span><br><span class="line">                <span class="keyword">if</span> (node.left != <span class="literal">null</span>)queue.offer(node.left);</span><br><span class="line">                <span class="keyword">if</span> (node.right != <span class="literal">null</span>)queue.offer(node.right);</span><br><span class="line">                size--;</span><br><span class="line">            &#125;</span><br><span class="line">            res.add(level);</span><br><span class="line">    </span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2024/12/31/MyArticle/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2024/12/31/MyArticle/">
+        <h2 class="post-title">测试长文本</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/31
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>01.脸颊上</p>
+<p>​       东云绘名抬起头时，发现晓山瑞希正一脸严肃地盯着自己。</p>
+<p>​       她突然有些不安，但更多的是不解，于是便放下手机，疑惑地对上那双看不出情绪和想法的粉眸。       </p>
+<p>​       两人干瞪眼好一会儿后，晓山瑞希突然凑近自己，认真而低沉地轻声说道：“你别动哦。”</p>
+<p>​       “欸？噢，好。”</p>
+<p>​       对方温热的气息轻轻扫着东云绘名的脸，让她有些不知所措起来，手也不知道该怎么放才好，只得揪住了对方的衣角。脸颊被对方用手指小心翼翼地戳弄着，在自己受不住想要询问前，
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2024/12/31/MyArticle/" class="go-post">阅读全文</a>
+</div>
 
 <div class="post">
     <a href="/2024/12/30/MyArticle/">
@@ -202,6 +260,7 @@
 <blockquote><footer><strong>原文章：</strong><cite><a target="_blank" rel="noopener" href="https://github.com/Mizuki-Akiyama/Solution-recording/blob/main/%E4%BA%8C%E5%8F%89%E6%A0%91/TreeNode.java">二叉树</a></cite></footer></blockquote>
 
 <p>一个节点最多有两颗子树</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TreeNode</span> &#123;&lt;br&gt;</span><br><span class="line">	<span class="type">int</span> val;&lt;br&gt;</span><br><span class="line">	TreeNode left;&lt;br&gt;</span><br><span class="line">	TreeNode right;&lt;br&gt;</span><br><span class="line">	TreeNode() &#123;&#125;&lt;br&gt;</span><br><span class="line">	TreeNode(<span class="type">int</span> val) &#123; <span class="built_in">this</span>.val = val; &#125;&lt;br&gt;</span><br><span class="line">	TreeNode(<span class="type">int</span> val, TreeNode left, TreeNode right) &#123;&lt;br&gt;</span><br><span class="line">		<span class="built_in">this</span>.val = val;&lt;br&gt;</span><br><span class="line">		<span class="built_in">this</span>.left = left;&lt;br&gt;</span><br><span class="line">		<span class="built_in">this</span>.right = right;&lt;br&gt;</span><br><span class="line">  	 &#125;&lt;br&gt;</span><br><span class="line">&#125;&lt;br&gt;</span><br></pre></td></tr></table></figure>
 
             
         </div>
@@ -263,9 +322,9 @@
         <div class="avatar">
             <img src="/images/avatar.jpg" alt="avatar" />
         </div>
-        <div class="name"></div>
+        <div class="name">北尘聆音</div>
         <div class="description">
-            <p>Description<br>…</p>
+            <p>越努力，越幸运</p>
 
         </div>
         
@@ -273,7 +332,7 @@
         <div class="friend-links">
             
             <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://argvchs.github.io">Argvchs</a>
+                <a target="_blank" rel="noopener" href="https://github.com/Mizuki-Akiyama">github主页</a>
             </div>
             
         </div>
@@ -289,11 +348,11 @@
     <div id="footer-wrap">
         <div>
             &copy;
-            2022 - 2024 BCLY&#39;s Blog
+            2022 - 2024 北尘聆音の小窝
             <span id="footer-icon">
                 <i class="fa-solid fa-font-awesome fa-fw"></i>
             </span>
-            &commat;
+            &commat;北尘聆音
         </div>
         <div>
             Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;

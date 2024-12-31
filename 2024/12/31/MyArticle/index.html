@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8" />
+    <title>测试长文本 | 北尘聆音の小窝</title>
+    <meta name="author" content="北尘聆音" />
+    <meta name="description" content="欢迎你来看我" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>北尘聆音の小窝</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-主页 fa-fw"></i>
+            <span>&ensp;主页</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-关于 fa-fw"></i>
+            <span>&ensp;关于</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-归档 fa-fw"></i>
+            <span>&ensp;归档</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-标签 fa-fw"></i>
+            <span>&ensp;标签</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;北尘聆音の小窝</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-主页 fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">主页</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-关于 fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">关于</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-归档 fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">归档</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-标签 fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">标签</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>测试长文本</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/31
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>01.脸颊上</p>
+<p>​       东云绘名抬起头时，发现晓山瑞希正一脸严肃地盯着自己。</p>
+<p>​       她突然有些不安，但更多的是不解，于是便放下手机，疑惑地对上那双看不出情绪和想法的粉眸。       </p>
+<p>​       两人干瞪眼好一会儿后，晓山瑞希突然凑近自己，认真而低沉地轻声说道：“你别动哦。”</p>
+<p>​       “欸？噢，好。”</p>
+<p>​       对方温热的气息轻轻扫着东云绘名的脸，让她有些不知所措起来，手也不知道该怎么放才好，只得揪住了对方的衣角。脸颊被对方用手指小心翼翼地戳弄着，在自己受不住想要询问前，<span id="more"></span>晓山瑞希又像是呢喃般的嘀咕道：</p>
+<p>“唔……稍等一会儿哦，好像沾到什么东西了。”</p>
+<p>​       “啊……啊？真的吗？该不会是刚才吃冰激凌的时候粘上的吧？”</p>
+<p>​       “唔嗯……”</p>
+<p>​       “不要把我脸上的妆也弄下来哦——哇啊！？”</p>
+<p>​       脸上突然传来一阵柔软的触感，就像是棉花糖和奶盖碰撞在一起的柔和感，让东云绘名在轻飘飘的感觉中一时间有些愣神。</p>
+<p>​       得逞了的猫咪窃笑着用拇指擦拭着嘴唇，嘴上也不忘调侃两句早已红透了脸的女友：“嘿嘿，绘名名脸上的东西已经被Amia魔法少女净化掉了哦！”</p>
+<p>​       “……幼稚！”</p>
+<p>02.迷惑</p>
+<p>​       绚烂的烟花在夏日祭典的夜空中留下了短暂的美丽，小小的仙女棒点亮了相依在海边的少年少女们，湿热的海风将气氛推至最高处，供游玩的人们邀请心上人一同作乐。</p>
+<p>​       东云绘名在一旁看着兴致勃勃地和朝比奈真冬以及宵崎奏分享烟花棒的晓山瑞希，无奈地笑了起来。</p>
+<p>​       “嘿嘿，那我要这个！”</p>
+<p>​       晓山瑞希抽走了一支标注着“能够变化成粉色”的烟花棒，高兴地观看着上面的使用说明。</p>
+<p>​       “嗯……那，我就要这个吧。金色的看上去也会很好看呢。”</p>
+<p>​       宵崎奏犹豫了一会儿，选择了一支写着“豪华金”的烟花棒。</p>
+<p>​       朝比奈真冬看了看已经选择完毕的二人，又翻了好几遍烟花包上的烟花，迟迟无法决定自己要玩哪一款。一旁的晓山瑞希注意到她的犹豫，便将一支能够变化三种颜色的烟花棒塞进对方手中。</p>
+<p>​       “真冬就玩这个吧，这个还能玩很长时间呢！”</p>
+<p>​       “嗯，谢谢。”</p>
+<p>​       “没事没事！嗯……那……啊！绘名绘名，这个很合适你哦！”</p>
+<p>​       晓山瑞希像是邀功般将烟花棒递给东云绘名，东云绘名下意识接住了那支小小的烟花棒，观察起包装上面的文字。</p>
+<p>​       “‘会发生爆炸的烟花棒，很合适拍照’？”</p>
+<p>​       “怎么样？”</p>
+<p>​       “啊，还不错哦，”东云绘名弯起眼眉，露出一个被烟花与焰火照得格外温柔的笑容，“瑞希，谢谢你啦。”</p>
+<p>​       晓山瑞希一手点着火，另一手准备为东云绘名点燃烟花，他看着身穿浴衣的女孩，竟是有些愣神。</p>
+<p>​       朝比奈真冬和宵崎奏不知何时去往远处燃放烟花了，留下二人待在原地。</p>
+<p>​       大型烟花的声音渐渐小去，四周突然变得格外安静，只能听到少女们亲密的交谈声与海水似心动般翻滚的声音。</p>
+<p>​       一阵海风吹来，将晓山瑞希手中的火焰吹灭。不知不觉盯着恋人发起呆来的事实让他有些羞愧，在陷入黑暗前赶忙躲开对方比烟花还要明亮的眼睛。</p>
+<p>​       “咳……嘛啊，没什么啦。来吧，我给你点火。”</p>
+<p>​       “好。”</p>
+<p>​       烟花棒燃放的那一刻，晓山瑞希听到了女孩惊喜的呼声，他正想笑着调侃一句，对方的声音却又突然放大，带来一阵无法避开的酥麻：</p>
+<p>​       “刚刚是故意的哦……♡”</p>
+<p>​       “啊……”</p>
+<p>​       少女没等他的回答，先行一步跑走，烟花冒出的烟引导着他看向在远处偷笑着的对方。</p>
+<p>​       “……真是的。”</p>
+<p>​       是早有预谋吗？打扮得这么可爱，原来就是为了这个呀。</p>
+<p>​       你是这里最漂亮的风景，怎么可能不会喜欢你呢。</p>
+<p>03.男孩子的秘密</p>
+<p>​       “叮咚——”</p>
+<p>​       东云彰人打开门，毫不意外地看到门外站着一位绝色的粉发美人。</p>
+<p>​       “……是你啊。”</p>
+<p>​       “早上好哦弟弟君！”</p>
+<p>​       “都说了不要叫我弟弟君……”东云彰人像是挣扎般无奈地叹道。</p>
+<p>​       “好的小舅子。”</p>
+<p>​       “……那家伙还在睡觉，你自己去找她吧。”东云彰人选择性地失聪了。</p>
+<p>​       “哎呀你真是……不过话说，”晓山瑞希一改刚才嬉笑的模样，故作娇羞地嗫喏着，还不安地扯了扯裙摆和衣袖，一脸含羞带怯地看向东云彰人，“你就这么放心让我一个人上去找绘名吗？”</p>
+<p>​       “……”</p>
+<p>​       “嗯——？”</p>
+<p>​       “……先不说那家伙的起床气，你确定你能是主动的那个？”</p>
+<p>​       “真过分啊……不过感觉好像知道了什么不得了的事情。”</p>
+<p>​       “猜测而已。”</p>
+<p>​       “实话实说吧？”</p>
+<p>​       “……没有。”</p>
+<p>​       像是听到了二人的谈话声般，东云绘名终于挣扎着从床上剥离下来，在昏暗的房间里摸索了一件外套，随便往身上一套便迷迷糊糊地打着哈欠从楼上走了下来。</p>
+<p>​       “哈啊……你们都好早啊……”</p>
+<p>​       “哦！早呀绘名！”</p>
+<p>​       晓山瑞希看向刚起床时头发还乱糟糟的女友，心情颇好地向对方问安。虽然他并不少见这样的情况，但每次看到时都会被女友可爱到忍不住笑起来，连说话声都不自觉地放柔了许多。</p>
+<p>​       “嗯，早……话说，你们声音也太大了吧？我在房间里都能听到。你们在聊什么呢？”</p>
+<p>​       “……没什么。”</p>
+<p>​       “在聊该叫弟弟君还是小舅子的问题。”</p>
+<p>​       “你这家伙！倒是好好叫我的名字啊！”</p>
+<p>​       东云彰人有气却发不出，只得狠狠瞪着身旁朝自己不断使眼色的坏人。</p>
+<p>​       “啊哈哈哈，下次一定。”</p>
+<p>​       看到对方并没有打算坦露的样子，晓山瑞希在东云绘名奇怪的注视下感激般的拍了拍东云彰人的肩。</p>
+<p>​       “……不是很懂你们。我去洗漱了。”</p>
+<p>​       望着东云绘名走进卫生间后，晓山瑞希这才压低了声音说道：“打赌吗？”</p>
+<p>​       “胜算不大，我押那家伙。”</p>
+<p>​       东云彰人很快接上了他的点。</p>
+<p>​       “我是说真的！”</p>
+<p>​       “哈——就那家伙，你指定被吃得死死的。”</p>
+<p>​       “你怎么能质疑我啊小舅子！”</p>
+<p>​       “……走了。”</p>
+<p>​       “喂——”</p>
+<p>04.睡眠之秋</p>
+<p>​       似乎是受到季节的影响，平时格外活跃的晓山瑞希这个时候却在车上昏昏欲睡，有几次险些撞在车窗上，到最后直接就靠在座椅上仰着头睡了起来。</p>
+<p>​       东云绘名无奈地看着身旁酿睡的男友，身子往里坐了一点，好让对方能睡得更安稳些。</p>
+<p>​       感知到东云绘名的动作，晓山瑞希不满地哼了一声，伸出手胡乱抓了一把，猛地扣住对方的手，勾着女友的胳膊与对方十指相扣着后，又把头靠在对方肩上，这才安心地继续睡下去。</p>
+<p>​       “……”</p>
+<p>​       东云绘名试着把手抽回来，好让自己的胳膊不会麻掉，对方却又捉着不放，甚至还比上一次抱得更紧。无奈之下，东云绘名只好垂下头，企图用温柔的声音来催眠对方：“瑞希，可以放开一下吗？我想换个姿势。”</p>
+<p>​       “……”</p>
+<p>​       毫无反应。</p>
+<p>​       没办法，就这么着吧。</p>
+<p>​       东云绘名干脆观察起对方的睡颜来，还时不时伸出手描绘着那张精致的脸蛋。到唇瓣处时，指尖微微一顿，继而将食指轻轻点在晓山瑞希的唇上，再放在自己的唇瓣上。</p>
+<p>​       来自手指的初吻，就这样被少女趁着睡梦中悄悄地夺走了。</p>
+<p>​       东云绘名忍不住笑了起来，又再次低下头，在恋人的额发间落下一个轻轻的吻。</p>
+<p>​       想让你知道，又不敢让你发现……真是矛盾啊。</p>
+<p>-</p>
+<p>本来想作为愚人节礼物献给大家的，奈何能力不足，写到第四个已经不行了……</p>
+<p>愚人节快乐（^･ω･^&#x3D;)</p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 北尘聆音の小窝
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;北尘聆音
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>
