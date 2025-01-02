@@ -3,7 +3,7 @@
 <html lang="">
 <head>
     <meta charset="utf-8" />
-    <title>tages | 北尘聆音の小窝</title>
+    <title>LeetCode解题记-643 | 北尘聆音の小窝</title>
     <meta name="author" content="北尘聆音" />
     <meta name="description" content="欢迎你来看我" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -136,34 +140,136 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                算法学习
-            </a>
+            <div class="article">
+    <div>
+        <h1>LeetCode解题记-643</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/1/2
         </span>
         
         
-        
-        <span>
-            <a href="/tags/Java%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                Java开发学习
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" style="color: #03a9f4">
+                    算法学习
+                </a>
+            </span>
+            
         </span>
-        
         
     </div>
+    
+    <div class="content" v-pre>
+        <p>#643. 子数组最大平均数 I</p>
+<p>###滑动窗口算法的学习</p>
+<p>给你一个由 <code>n</code> 个元素组成的整数数组 <code>nums</code> 和一个整数 <code>k</code> 。</p>
+<p>请你找出平均数最大且 <strong>长度为 <code>k</code></strong> 的连续子数组，并输出该最大平均数。</p>
+<p>任何误差小于 <code>10^-5</code> 的答案都将被视为正确答案。</p>
+<p><strong>示例 1：</strong></p>
+<pre><code>输入：nums = [1,12,-5,-6,50,3], k = 4
+输出：12.75
+解释：最大平均数 (12-5-6+50)/4 = 51/4 = 12.75
+</code></pre>
+<p><strong>示例 2：</strong></p>
+<pre><code>输入：nums = [5], k = 1
+输出：5.00000
+</code></pre>
+<p>看到这道题，我的第一想法是定义两个指针和两个记录变量</p>
+<pre><code class="java">int i = 0;
+int j = k - 1;
+double max = 0;
+double count = 0;
+</code></pre>
+<p>在通过两层循环不断计算指针范围内的和的平均数，并与最大值做比较，如果大于最大值则更新最大值，最后返回最大值</p>
+<p>于是有了这段代码</p>
+<pre><code class="java">class Solution &#123;
+    public double findMaxAverage(int[] nums, int k) &#123;
+        double max = 0;
+        int i = 0;
+        int j = k - 1;
+        double count = 0;
+        while (j != nums.length) &#123;
+            for (int l = i; l &lt;= j; l++) &#123;
+                count += nums[l];
+            &#125;
+            max = Math.max(max, count / k);
+            i++;
+            j++;
+            count = 0;
+        &#125;
+
+        return max;
+
+    &#125;
+&#125;
+</code></pre>
+<p>然而回应我的是一个解答错误</p>
+<pre><code>nums =
+[-1]
+</code></pre>
+<pre><code>k =
+1
+</code></pre>
+<p>输出</p>
+<pre><code>0.00000
+</code></pre>
+<p>预期结果</p>
+<pre><code>-1.00000
+</code></pre>
+<p>于是我想到max的初始值应该更小，于是修改了一下初始值</p>
+<pre><code class="java">double max = Integer.MIN_VALUE;
+</code></pre>
+<p>(<strong>ps</strong>：最开始选择的是<code>Double.MIN_VALUE</code>，结果还是这个错误。后来查了才知道<code>Double.MIN_VALUE</code>是非0非负数)</p>
+<p>这个用例算是过了，却是超出时间限制，卡在（122&#x2F;127）的地方</p>
+<p>看了评论说double类型运算会比int类型慢，以为问题出在了这里，来来回回修改了好几个变量的类型，但还是不能通过全部测试用例</p>
+<p>看来只能写一个**O(n)**复杂度的解法了</p>
+<p>但是根本想不出来(；д；)</p>
+<p>求助了一下Qwen2.5，终于也是把这个逻辑弄懂了</p>
+<p>并不需要每次都算出滑动窗口内的平均值，只需要先将<strong>max</strong>初始化为前<strong>k</strong>个元素的和，再从第<strong>k+1</strong>个元素开始滑动窗口，每次移动窗口都计算窗口内的和，并与<strong>max</strong>比较，最后返回<strong>max &#x2F; k</strong>即可</p>
+<p>具体计算方法是</p>
+<pre><code class="java">max = max - nums[i - k] + nums[i];
+</code></pre>
+<p>通俗来讲，<code>nums[i - k]</code>就是从前k个元素的和去掉第一个元素，这样k个元素的和就只剩k-1个元素。再加上当前元素，k-1个元素的和就又回到了k个元素的和</p>
+<pre><code class="java">class Solution &#123;
+    public double findMaxAverage(int[] nums, int k) &#123;
+        int sum = 0;
+        for (int l = 0; l &lt; k; l++) &#123;
+            sum += nums[l];
+        &#125;
+        
+        int max = sum;
+        
+        for (int i = k; i &lt; nums.length; i++) &#123;
+            sum = sum - nums[i - k] + nums[i];
+            max = Math.max(max,sum);
+        &#125;
+
+        return 1.0 * max / k ;
+
+    &#125;
+&#125;
+</code></pre>
+<p>其实很好理解，但是脑子如果转不过来那个弯就会被卡的死死的动弹不得啊</p>
+<p>最终也是成功通过，击败100%的用户</p>
+
+    </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -195,6 +301,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>
