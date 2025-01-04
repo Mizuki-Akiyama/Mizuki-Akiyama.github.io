@@ -3,7 +3,7 @@
 <html lang="">
 <head>
     <meta charset="utf-8" />
-    <title>MyBatis学习日记(第一天) | 北尘聆音の小窝</title>
+    <title>Mybatis的事务管理机制 | 北尘聆音の小窝</title>
     <meta name="author" content="北尘聆音" />
     <meta name="description" content="欢迎你来看我" />
     <meta name="keywords" content="" />
@@ -142,14 +142,14 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>MyBatis学习日记(第一天)</h1>
+        <h1>Mybatis的事务管理机制</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2025/1/2
+            2025/1/4
         </span>
         
         
@@ -161,8 +161,8 @@
             
             <span class="tag">
                 
-                <a href="/tags/Java%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/" style="color: #ffa2c4">
-                    Java开发学习
+                <a href="/tags/%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/" style="color: #ff7d73">
+                    开发学习
                 </a>
             </span>
             
@@ -171,55 +171,77 @@
     </div>
     
     <div class="content" v-pre>
-        <h1 id="开发我的第一个-MyBatis-程序"><a href="#开发我的第一个-MyBatis-程序" class="headerlink" title="开发我的第一个 MyBatis 程序"></a>开发我的第一个 MyBatis 程序</h1><h2 id="1-resources-目录"><a href="#1-resources-目录" class="headerlink" title="1. resources 目录"></a>1. resources 目录</h2><ul>
-<li>放在这个目录当中的一般都是资源、配置文件。</li>
-<li>直接放在 <code>resources</code> 目录下的资源等同于放到类的根路径下。</li>
-</ul>
-<h2 id="2-开发步骤"><a href="#2-开发步骤" class="headerlink" title="2. 开发步骤"></a>2. 开发步骤</h2><ol>
-<li><p>打包方式：<code>jar</code></p>
-</li>
-<li><p>引入 MyBatis 依赖，MySQL 驱动。</p>
- <span id="more"></span>
-</li>
-<li><p>编写 MyBatis 核心配置文件：<code>mybatis-config.xml</code></p>
-<ul>
-<li>这个文件名可以被替换，只是约定俗成的这个名字。</li>
-<li>文件的存放位置也不是固定的，但一般情况下被放到类的根目录。</li>
-<li>不理解 XML 文件中的信息也没关系，先修改连接数据库的配置信息即可。</li>
-</ul>
-</li>
-<li><p>编写 <code>XxxxMapper.xml</code></p>
-<ul>
-<li><p>在这个文件中编写 SQL 语句。</p>
-</li>
-<li><p>文件名和存放位置也不是固定的。</p>
-</li>
-</ul>
-</li>
-<li><p>在 <code>mybatis-config.xml</code> 文件中指定 <code>XxxxMapper.xml</code> 文件的路径：</p>
-<pre><code class="xml">&lt;mapper resource=&quot;CarMapper.xml&quot;/&gt;
+        <p>在<code>mybatis-config.xml</code>文件中，可以通过以下配置进行MyBatis的事务管理：</p>
+<pre><code class="xml">&lt;transactionManager type=&quot;JDBC&quot;/&gt;
 </code></pre>
+<p>type属性的值包括两个选项，不区分大小写：</p>
 <ul>
-<li>注意：<code>resource</code> 属性会自动从类的根路径下开始查找。</li>
+<li><code>JDBC</code></li>
+<li><code>MANAGED</code></li>
 </ul>
+<p>换句话说，MyBatis提供了两种事务管理机制：</p>
+<span id="more"></span>
+
+<ul>
+<li><p><strong>JDBC事务管理器</strong>：MyBatis框架使用原生JDBC代码管理事务。例如：</p>
+<pre><code class="java">conn.setAutoCommit(false); // 开启事务
+// ……业务处理……
+conn.commit(); // 手动提交事务
+</code></pre>
+<p>使用JDBC事务管理器时，底层创建的事务管理器对象为<code>JdbcTransaction</code>对象。</p>
+<p>如果编写如下代码：</p>
+<pre><code class="java">SqlSession sqlSession = sqlSessionFactory.openSession(true);
+</code></pre>
+<p>这表示不会开启事务，因为这种方式不会执行<code>setAutoCommit(false)</code>。在JDBC中，如果没有执行<code>setAutoCommit(false)</code>，那么<code>autoCommit</code>默认是<code>true</code>，这意味着没有事务，每次执行DML语句都会立即提交。</p>
 </li>
-<li><p>编写 MyBatis 程序（使用 MyBatis 类库编写 MyBatis 程序，连接数据库，做增删改查）。</p>
+<li><p><strong>MANAGED事务管理器</strong>：MyBatis不再负责事务管理，而是将事务管理交给其他容器（如Spring）。对于仅使用MyBatis的情况，如果<code>type = &quot;MANAGED&quot;</code>，则意味着无人管理事务，即事务未被开启。</p>
 </li>
-</ol>
-<h2 id="3-从-XML-中构建-SqlSessionFactory"><a href="#3-从-XML-中构建-SqlSessionFactory" class="headerlink" title="3. 从 XML 中构建 SqlSessionFactory"></a>3. 从 XML 中构建 SqlSessionFactory</h2><p>通过官方文档的这句话你能想到什么呢？</p>
-<ol>
-<li>在 MyBatis 中一定有一个很重要的对象，这个对象是 <code>SqlSessionFactory</code> 对象。</li>
-<li><code>SqlSessionFactory</code> 对象的创建一定需要 XML，XML 是一个配置文件。</li>
-</ol>
-<p>通过 <code>mybatis-config.xml</code> 创建 <code>SqlSessionFactory</code> 对象。MyBatis 中有两个主要的配置文件：</p>
-<ol>
-<li><code>mybatis-config.xml</code>：核心配置文件，主要配置数据库的连接等（只有一个）。</li>
-<li><code>XxxxMapper.xml</code>：专门用来编写 SQL 语句的配置文件（一个表有一个），例如：<ul>
-<li>一个 <code>User</code> 表对应一个 <code>UserMapper.xml</code>，</li>
-<li>一个 <code>Student</code> 表对应一个 <code>StudentMapper.xml</code>。</li>
 </ul>
-</li>
-</ol>
+<p><strong>重点</strong>：<br>只要<code>autoCommit</code>是<strong>true</strong>就表示没有事务，只有当它为<strong>false</strong>时才表示事务已开启。</p>
+<br>
+
+<br>
+
+<br>
+
+<p>第一个较为完整的MyBatis程序：</p>
+<pre><code class="java">import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import java.io.IOException;
+
+/**
+ * 第一个完整的MyBatis程序
+ */
+public class MyBatisCompleteTest &#123;
+    public static void main(String[] args) throws IOException &#123;
+        SqlSession sqlSession = null;
+        try&#123;
+            SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
+            SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(Resources.getResourceAsStream(&quot;mybatis-config.xml&quot;));
+            //开启会话（底层会开启事务）
+            sqlSession = sqlSessionFactory.openSession();
+            //处理业务
+            int count = sqlSession.insert(&quot;insertCar&quot;);
+            System.out.println(&quot;插入了&quot;+count+&quot;条数据&quot;);
+            //提交事务
+            sqlSession.commit();
+        &#125;catch (IOException e)&#123;
+            if (sqlSession != null) &#123;
+                //遇到异常回滚事务
+                sqlSession.rollback();
+            &#125;
+            e.printStackTrace();
+        &#125;finally &#123;
+            if (sqlSession != null) &#123;
+                sqlSession.close();
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 
     </div>
     

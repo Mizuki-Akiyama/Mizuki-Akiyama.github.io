@@ -3,7 +3,7 @@
 <html lang="">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: Java开发学习 | 北尘聆音の小窝</title>
+    <title>开发我的第一个 MyBatis 程序 | 北尘聆音の小窝</title>
     <meta name="author" content="北尘聆音" />
     <meta name="description" content="欢迎你来看我" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -136,65 +140,94 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                算法学习
-            </a>
+            <div class="article">
+    <div>
+        <h1>开发我的第一个 MyBatis 程序</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/1/2
         </span>
         
         
-        
-        <span>
-            <a href="/tags/Java%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                Java开发学习
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/" style="color: #ff7d73">
+                    开发学习
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2025/1/2</div>
-            <a href="/MyBatis%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-%E7%AC%AC%E4%B8%80%E5%A4%A9/">
-                <h3>MyBatis学习日记(第一天)</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/Java%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/" style="color: #03a9f4">
-                            Java开发学习
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="1-resources-目录"><a href="#1-resources-目录" class="headerlink" title="1. resources 目录"></a>1. resources 目录</h2><ul>
+<li>放在这个目录当中的一般都是资源、配置文件。</li>
+<li>直接放在 <code>resources</code> 目录下的资源等同于放到类的根路径下。</li>
+</ul>
+<h2 id="2-开发步骤"><a href="#2-开发步骤" class="headerlink" title="2. 开发步骤"></a>2. 开发步骤</h2><ol>
+<li><p>打包方式：<code>jar</code></p>
+</li>
+<li><p>引入 MyBatis 依赖，MySQL 驱动。</p>
+ <span id="more"></span>
+</li>
+<li><p>编写 MyBatis 核心配置文件：<code>mybatis-config.xml</code></p>
+<ul>
+<li>这个文件名可以被替换，只是约定俗成的这个名字。</li>
+<li>文件的存放位置也不是固定的，但一般情况下被放到类的根目录。</li>
+<li>不理解 XML 文件中的信息也没关系，先修改连接数据库的配置信息即可。</li>
+</ul>
+</li>
+<li><p>编写 <code>XxxxMapper.xml</code></p>
+<ul>
+<li><p>在这个文件中编写 SQL 语句。</p>
+</li>
+<li><p>文件名和存放位置也不是固定的。</p>
+</li>
+</ul>
+</li>
+<li><p>在 <code>mybatis-config.xml</code> 文件中指定 <code>XxxxMapper.xml</code> 文件的路径：</p>
+<pre><code class="xml">&lt;mapper resource=&quot;CarMapper.xml&quot;/&gt;
+</code></pre>
+<ul>
+<li>注意：<code>resource</code> 属性会自动从类的根路径下开始查找。</li>
+</ul>
+</li>
+<li><p>编写 MyBatis 程序（使用 MyBatis 类库编写 MyBatis 程序，连接数据库，做增删改查）。</p>
+</li>
+</ol>
+<h2 id="3-从-XML-中构建-SqlSessionFactory"><a href="#3-从-XML-中构建-SqlSessionFactory" class="headerlink" title="3. 从 XML 中构建 SqlSessionFactory"></a>3. 从 XML 中构建 SqlSessionFactory</h2><p>通过官方文档的这句话你能想到什么呢？</p>
+<ol>
+<li>在 MyBatis 中一定有一个很重要的对象，这个对象是 <code>SqlSessionFactory</code> 对象。</li>
+<li><code>SqlSessionFactory</code> 对象的创建一定需要 XML，XML 是一个配置文件。</li>
+</ol>
+<p>通过 <code>mybatis-config.xml</code> 创建 <code>SqlSessionFactory</code> 对象。MyBatis 中有两个主要的配置文件：</p>
+<ol>
+<li><code>mybatis-config.xml</code>：核心配置文件，主要配置数据库的连接等（只有一个）。</li>
+<li><code>XxxxMapper.xml</code>：专门用来编写 SQL 语句的配置文件（一个表有一个），例如：<ul>
+<li>一个 <code>User</code> 表对应一个 <code>UserMapper.xml</code>，</li>
+<li>一个 <code>Student</code> 表对应一个 <code>StudentMapper.xml</code>。</li>
+</ul>
+</li>
+</ol>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -226,6 +259,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>
