@@ -3,7 +3,7 @@
 <html lang="">
 <head>
     <meta charset="utf-8" />
-    <title>LeetCode解题记-202 | 北尘聆音の小窝</title>
+    <title>LeetCode解题记-108 | 北尘聆音の小窝</title>
     <meta name="author" content="北尘聆音" />
     <meta name="description" content="欢迎你来看我" />
     <meta name="keywords" content="" />
@@ -142,14 +142,14 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>LeetCode解题记-202</h1>
+        <h1>LeetCode解题记-108</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2025/1/11
+            2025/1/18
         </span>
         
         
@@ -161,7 +161,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" style="color: #ff7d73">
+                <a href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" style="color: #00a596">
                     算法学习
                 </a>
             </span>
@@ -171,80 +171,71 @@
     </div>
     
     <div class="content" v-pre>
-        <h3 id="202-快乐数"><a href="#202-快乐数" class="headerlink" title="202.快乐数"></a>202.快乐数</h3><h5 id="快慢指针的用法"><a href="#快慢指针的用法" class="headerlink" title="快慢指针的用法"></a>快慢指针的用法</h5><p>对于这道题，我认为最关键的一点是能不能找到以下三种可能，并且理解为什么第三种情况永远不会发生：</p>
-<ol>
-<li>最终会得到 1。</li>
-<li>最终会进入循环。</li>
-<li>值会越来越大，最后接近无穷大。</li>
-</ol>
-<p>根据下表，可以知道对于 3 位数的数字，它不可能大于 243。这意味着它要么被困在 243 以下的循环内，要么跌到 1。4 位或 </p>
+        <h3 id="108-将有序数组转换为二叉搜索树"><a href="#108-将有序数组转换为二叉搜索树" class="headerlink" title="108. 将有序数组转换为二叉搜索树"></a>108. 将有序数组转换为二叉搜索树</h3><h5 id="二叉树的操作"><a href="#二叉树的操作" class="headerlink" title="二叉树的操作"></a>二叉树的操作</h5><p>给你一个整数数组 <code>nums</code> ，其中元素已经按 <strong>升序</strong>排列，请你将其转换为一棵 <strong>平衡</strong>二叉搜索树。</p>
+<p><strong>示例 1：</strong></p>
 <span id="more"></span>
 
-<p>4 位以上的数字在每一步都会丢失一位，直到降到 3 位为止。所以我们知道，最坏的情况下，算法可能会在 243 以下的所有数字上循环，然后回到它已经到过的一个循环或者回到 1。但它不会无限期地进行下去，所以我们排除第三种选择。</p>
-<table>
-<thead>
-<tr>
-<th align="center">Digits</th>
-<th align="center">Largest</th>
-<th align="center">Next</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1</td>
-<td align="center">9</td>
-<td align="center">81</td>
-</tr>
-<tr>
-<td align="center">2</td>
-<td align="center">99</td>
-<td align="center">162</td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center">999</td>
-<td align="center">243</td>
-</tr>
-<tr>
-<td align="center">4</td>
-<td align="center">9999</td>
-<td align="center">324</td>
-</tr>
-<tr>
-<td align="center">13</td>
-<td align="center">9999999999999</td>
-<td align="center">1053</td>
-</tr>
-</tbody></table>
-<p>所以这道题的本质其实是判断是否循环的一个问题。</p>
-<p>那么就可以用最经典的快慢指针算法，定义一个 <code>slow</code> 指针和一个 <code>fast</code> 指针，<code>fast</code> 每次走两步，<code>slow</code> 每次走一步，如果二者最终相遇，则表示这是一个循环；反之则 <code>fast</code> 必定先到达终点，也就是 1。</p>
-<h2 id="开始解题"><a href="#开始解题" class="headerlink" title="开始解题"></a>开始解题</h2><p>定义一个 <code>getNext</code> 方法，参数为 <code>int n</code>，返回值为 <code>int</code>。这个方法的目的是找到当前 <code>n</code> 的每个数位的平方和的和。</p>
-<pre><code class="java">public static int getNext(int n) &#123;
-    int sum = 0;
-    while (n &gt; 0) &#123;
-        int d = n % 10;
-        sum += d * d;
-        n = n / 10;
-    &#125;
-    return sum;
-&#125;
+<p><img src="https://assets.leetcode.com/uploads/2021/02/18/btree1.jpg" alt="img"></p>
+<pre><code>输入：nums = [-10,-3,0,5,9]
+输出：[0,-3,9,-10,null,5]
+解释：[0,-10,5,null,-3,null,9] 也将被视为正确答案：
 </code></pre>
-<p>然后在 <code>isHappy</code> 方法中定义快慢指针，使用 <code>while</code> 循环以 <code>fast != slow</code> 作为循环条件重复指针前进的步骤。当 <code>fast == 1</code> 的时候停止循环并返回 <code>true</code>，如果循环正常终止则返回 <code>false</code>。</p>
-<pre><code class="java">public boolean isHappy(int n) &#123;
-    int slow = n;
-    int fast = getNext(n);
-
-    while (fast != slow) &#123;
-        slow = getNext(slow);
-        fast = getNext(getNext(fast));
-        if (fast == 1) &#123;
-            return true;
+<p><strong>示例 2：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/02/18/btree.jpg" alt="img"></p>
+<pre><code>输入：nums = [1,3]
+输出：[3,1]
+解释：[1,null,3] 和 [3,1] 都是高度平衡二叉搜索树。
+</code></pre>
+<p>这道题的关键在于：理解二叉搜索树(Binary Search Tree)，即所有的左子树的值都小于根节点，所有的右子树的值都大于根节点</p>
+<p>，这一特性适用于任何左右子树。</p>
+<p>解题思路：</p>
+<p>就像二分查找一样，找数组的中点和左右区间，左区间全部为左子树（因为题目已经确定数组严格递增），右区间全部为右子树，然后在分别对左右区间进行同样的递归操作，最终返回即可</p>
+<pre><code class="java">/**
+ * Definition for a binary tree node.
+ * public class TreeNode &#123;
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() &#123;&#125;
+ *     TreeNode(int val) &#123; this.val = val; &#125;
+ *     TreeNode(int val, TreeNode left, TreeNode right) &#123;
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     &#125;
+ * &#125;
+ */
+class Solution &#123;
+    public TreeNode sortedArrayToBST(int[] nums) &#123;
+        if (nums.length == 0) &#123;
+            return null;
         &#125;
-    &#125;
 
-    return false;
+        int mid = nums.length / 2;
+        TreeNode node = new TreeNode(nums[mid]);
+        node.left = sortedArrayToBST(Arrays.copyOfRange(nums,0,mid));
+        node.right = sortedArrayToBST(Arrays.copyOfRange(nums,mid +1,nums.length));
+        return node;
+    &#125;
 &#125;
 </code></pre>
-<p>最终代码成功通过测试，击败了 100% 的用户。</p>
+<p>这是我第一次完成的代码，但是Arrays.copyOfRange消耗的内存太过庞大，所以可以针对这点进行些许优化，把每次传入新数组改为传入一个区间</p>
+<pre><code class="java"> public TreeNode sortedArrayToBST(int[] nums) &#123;
+        return helper(nums,0, nums.length);
+    &#125;
+    public TreeNode helper(int[] nums,int left,int right)&#123;
+        if (left &gt; right)&#123;
+            return null;
+        &#125;
+
+        int mid = (left + right) / 2;
+        TreeNode node = new TreeNode(nums[mid]);
+        node.left = helper(nums,left,mid - 1);
+        node.right = helper(nums,mid + 1,right);
+        return node;
+    &#125;
+</code></pre>
+<p>最后也是击败了100%的用户</p>
 
     </div>
     
